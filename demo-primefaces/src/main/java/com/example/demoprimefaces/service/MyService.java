@@ -9,7 +9,7 @@ public class MyService {
 
     public String getData() {
         log.info("called MyService.getData()");
-        return "stuff from service";
+        return "<strong>stuff from service</strong>";
     }
 
 }
