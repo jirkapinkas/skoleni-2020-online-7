@@ -1,4 +1,4 @@
-package com.example.demoprimefaces;
+package com.example.demoprimefaces.config;
 
 import com.example.demoprimefaces.repository.DogRepository;
 import com.example.demoprimefaces.repository.PersonRepository;
