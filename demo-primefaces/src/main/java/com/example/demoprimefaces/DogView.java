@@ -2,41 +2,32 @@ package com.example.demoprimefaces;
 
 import com.example.demoprimefaces.entity.Dog;
 import com.example.demoprimefaces.service.DogService;
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.Getter;
+import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Scope;
+import org.springframework.stereotype.Component;
 import org.springframework.web.util.TagUtils;
 
-import javax.annotation.ManagedBean;
 import javax.annotation.PostConstruct;
 import java.util.List;
 
 @Scope(TagUtils.SCOPE_SESSION)
-@ManagedBean
+@Component
+@RequiredArgsConstructor
 public class DogView {
 
-    @Autowired
-    private DogService dogService;
+    private final DogService dogService;
 
+    @Getter
     private Dog dog;
 
+    @Getter
     private List<Dog> dogs;
 
     @PostConstruct
     public void init() {
         dog = new Dog();
         dogs = dogService.findAll();
-    }
-
-    public Dog getDog() {
-        return dog;
-    }
-
-    public void setDog(Dog dog) {
-        this.dog = dog;
-    }
-
-    public List<Dog> getDogs() {
-        return dogs;
     }
 
     public void save() {

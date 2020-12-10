@@ -1,6 +1,7 @@
 package com.example.demoprimefaces;
 
 import com.example.demoprimefaces.service.MyService;
+import org.springframework.context.annotation.Lazy;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 import org.springframework.web.util.TagUtils;
@@ -9,9 +10,10 @@ import javax.annotation.ManagedBean;
 import javax.inject.Named;
 
 @Scope(TagUtils.SCOPE_REQUEST) // request scope
-@ManagedBean // javax.annotation.ManagedBean z toho udela Spring Bean
+//@ManagedBean // javax.annotation.ManagedBean z toho udela Spring Bean
 //@Named
-//@Component
+//@Lazy // toto ma vyznam kdyz je scope singleton!
+@Component
 public class HelloPFBean {
 
     private MyService myService;
