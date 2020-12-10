@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:ui="http://java.sun.com/jsf/facelets">
+
+<h:head>
+</h:head>
+
+<h:body style="margin-left:50px">
+    <h2>PrimeFaces Works</h2>
+    <p>
+        #{helloPFBean.data}
+    </p>
+
+    <h:form>
+        Name: <p:inputText value="#{dogView.dog.name}" />
+        <br />
+        Weight: <p:inputText value="#{dogView.dog.weight}" />
+        <br />
+        <p:commandButton value="save" action="#{dogView.save()}" update="dogDataTable" />
+    </h:form>
+
+    <p:dataTable id="dogDataTable" var="dog" value="#{dogView.dogs}">
+        <p:column headerText="Id">
+            #{dog.id}
+        </p:column>
+        <p:column headerText="Name">
+            #{dog.name}
+        </p:column>
+    </p:dataTable>
+
+</h:body>
+</html>
