@@ -36,6 +36,7 @@ public class DemoPrimefacesApplication implements ServletContextAware {
     public void setServletContext(ServletContext servletContext) {
         //spring boot only works if this is set
         servletContext.setInitParameter("com.sun.faces.forceLoadConfiguration", Boolean.TRUE.toString());
+        servletContext.setInitParameter("javax.faces.FACELETS_SKIP_COMMENTS", Boolean.TRUE.toString());
         if(environment.acceptsProfiles(Profiles.of("prod"))) {
             servletContext.setInitParameter("javax.faces.PROJECT_STAGE", "Production");
             servletContext.setInitParameter("javax.faces.FACELETS_REFRESH_PERIOD", "-1");
