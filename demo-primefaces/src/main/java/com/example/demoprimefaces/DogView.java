@@ -9,6 +9,8 @@ import org.springframework.stereotype.Component;
 import org.springframework.web.util.TagUtils;
 
 import javax.annotation.PostConstruct;
+import javax.faces.application.FacesMessage;
+import javax.faces.context.FacesContext;
 import java.util.List;
 
 @Scope(TagUtils.SCOPE_SESSION)
@@ -31,6 +33,8 @@ public class DogView {
     }
 
     public void save() {
+        FacesContext.getCurrentInstance()
+                .addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "Saved", "Saved"));
         dogService.save(dog);
         init();
     }

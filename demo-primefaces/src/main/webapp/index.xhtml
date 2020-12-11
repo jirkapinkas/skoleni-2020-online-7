@@ -19,11 +19,12 @@
     </p>
 
     <h:form>
+        <p:messages />
         Name: <p:inputText value="#{dogView.dog.name}" />
         <br />
         Weight: <p:inputText value="#{dogView.dog.weight}" />
         <br />
-        <p:commandButton value="save" action="#{dogView.save()}" update="dogDataTable" />
+        <p:commandButton value="save" action="#{dogView.save()}" update=":dogDataTable, @form" />
     </h:form>
 
     <p:dataTable id="dogDataTable" var="dog" value="#{dogView.dogs}">
